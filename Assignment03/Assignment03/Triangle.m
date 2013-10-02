@@ -17,7 +17,7 @@
     {
         triangleArray   = [[NSMutableArray alloc]init];
         triangleOutline = [[NSMutableArray alloc]init];
-        triangleFill    = [[NSMutableArray alloc]init];        
+        triangleFill    = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -146,7 +146,7 @@
     // Retrieve coordinates for startPoint & endPoint
     int x1 = [[startPoint objectAtIndex:0] CGPointValue].x, y1 = [[startPoint objectAtIndex:0] CGPointValue].y;
     int x2 = [[endPoint   objectAtIndex:0] CGPointValue].x;
-
+    
     int loopIteration = abs(x2-x1);
     UIColor *currentColor;
     
@@ -161,7 +161,7 @@
         blue  += blueStep;
         currentColor = [UIColor colorWithRed:red green:green blue:blue alpha:1];
         [triangleFill addObject:[NSArray arrayWithObjects:[CIVector vectorWithX:i Y:y1], currentColor, nil]];
-    }    
+    }
 }
 
 - (void) drawRainbowLine:(NSArray*)startPoint EndPoint:(NSArray*)endPoint
