@@ -20,6 +20,7 @@
 		B99E0D6017FCA36A00B35D4B /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B99E0D5F17FCA36A00B35D4B /* CoreImage.framework */; };
 		B99E0D6517FCA38C00B35D4B /* Triangle.m in Sources */ = {isa = PBXBuildFile; fileRef = B99E0D6217FCA38C00B35D4B /* Triangle.m */; };
 		B99E0D6617FCA38C00B35D4B /* TriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B99E0D6417FCA38C00B35D4B /* TriangleView.m */; };
+		B99E0D6917FCA48300B35D4B /* Circle.m in Sources */ = {isa = PBXBuildFile; fileRef = B99E0D6817FCA48300B35D4B /* Circle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,8 @@
 		B99E0D6217FCA38C00B35D4B /* Triangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Triangle.m; sourceTree = "<group>"; };
 		B99E0D6317FCA38C00B35D4B /* TriangleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleView.h; sourceTree = "<group>"; };
 		B99E0D6417FCA38C00B35D4B /* TriangleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleView.m; sourceTree = "<group>"; };
+		B99E0D6717FCA48300B35D4B /* Circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Circle.h; sourceTree = "<group>"; };
+		B99E0D6817FCA48300B35D4B /* Circle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Circle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 		B99E0D4217FCA35600B35D4B /* Assignment03 */ = {
 			isa = PBXGroup;
 			children = (
+				B99E0D6717FCA48300B35D4B /* Circle.h */,
+				B99E0D6817FCA48300B35D4B /* Circle.m */,
 				B99E0D4B17FCA35600B35D4B /* AppDelegate.h */,
 				B99E0D4C17FCA35600B35D4B /* AppDelegate.m */,
 				B99E0D5417FCA35600B35D4B /* MainStoryboard.storyboard */,
@@ -186,6 +191,7 @@
 				B99E0D4D17FCA35600B35D4B /* AppDelegate.m in Sources */,
 				B99E0D6517FCA38C00B35D4B /* Triangle.m in Sources */,
 				B99E0D6617FCA38C00B35D4B /* TriangleView.m in Sources */,
+				B99E0D6917FCA48300B35D4B /* Circle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
