@@ -7,6 +7,7 @@
 //
 
 #import "TriangleView.h"
+#import "Circle.h"
 
 @implementation TriangleView
 @synthesize triangle,point1,point2,point3;
@@ -17,9 +18,9 @@
     {
         // initialize a triangle with three known points & thier colors
         triangle = [[Triangle alloc]init];
-        point1 = @[[CIVector vectorWithX:90  Y:42],  [UIColor colorWithRed:128/255.0 green:128/255.0 blue:128/255.0 alpha:1]];
-        point2 = @[[CIVector vectorWithX:105 Y:123], [UIColor colorWithRed:128/255.0 green:128/255.0 blue:128/255.0 alpha:1]];
-        point3 = @[[CIVector vectorWithX:175 Y:76],  [UIColor colorWithRed:128/255.0 green:128/255.0 blue:128/255.0 alpha:1]];
+        point1 = @[[CIVector vectorWithX:50  Y:100],[UIColor colorWithRed:255/255.0 green:0/255.0 blue:0/255.0 alpha:1]];
+        point2 = @[[CIVector vectorWithX:350 Y:100],[UIColor colorWithRed:0/255.0 green:255/255.0 blue:0/255.0 alpha:1]];
+        point3 = @[[CIVector vectorWithX:50 Y:400], [UIColor colorWithRed:0/255.0   green:0/255.0   blue:255/255.0   alpha:1]];
     }
     return self;
 }
@@ -28,11 +29,30 @@
 // &&&&&&&&&&&&&&&&&&&&& DRAW HANDLING &&&&&&&&&&&&&&&&&&&&&
 - (void)drawRect:(CGRect)rect
 {
+    NSArray *point4 = @[[CIVector vectorWithX:350 Y:400], [UIColor colorWithRed:0/255.0   green:0/255.0   blue:255/255.0   alpha:1]];
+
     // Store all triangle pixels in an array
-    [triangle drawTriangle:point1 Point2:point2 Point3:point3];
-    
+    //[triangle drawTriangle:point1 Point2:point2 Point3:point3];
+    [triangle drawSquare:point1 Point2:point2 Point3:point3 Point4:point4];
     // Display the triangle on the screen
-    [self drawImage:triangle.triangleArray WithSize:1];
+    [self drawImage:triangle.triangleFill WithSize:20];
+    /*
+    Circle *circle1 = [[Circle alloc] init];
+    Circle *circle2 = [[Circle alloc] init];
+    
+    
+    [circle1 drawCircle:100.0 forCenterPoint:CGPointMake(350, 400) Width:700 Height:1000 WithColor:[UIColor blueColor]];
+    [circle2 drawCircle:350.0 forCenterPoint:CGPointMake(350, 400) Width:700 Height:1000 WithColor:[UIColor redColor]];
+    
+    [circle1 shadeCircle:circle1.circleArray InnerCircle:circle2.circleArray];
+    
+    NSLog(@"circle1 count=%d",[circle1.circleArray count]);
+    NSLog(@"circle2 count=%d",[circle2.circleArray count]);
+    NSLog(@"circle1 Rainbow count=%d",[circle1.rainbowArray count]);
+    
+    [self drawImage:circle1.rainbowArray WithSize:30];
+    
+    
     
     // Create an image for a solid-shaded triangle
     [self createImageWithFileName:@"SolidColorTriangle.png" Points:triangle.triangleFill];
@@ -55,6 +75,7 @@
     
     // Create an image for a solid-shaded triangle
     [self createImageWithFileName:@"GouraudShadingTriangle.png" Points:triangle.triangleFill];
+     */
 }
 
 #pragma mark Create png Files
@@ -140,18 +161,18 @@
 // Draw the image from the Points Array
 - (void) drawImage:(NSMutableArray *) imagePoints WithSize:(int)size
 {
-    CGPoint currentPoint;
-    UIColor *currentColor;
+    CIVector *currentPoint;
+    UIColor  *currentColor;
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(context, [[UIColor redColor] CGColor]);
     
     for (int i=0; i< imagePoints.count; i++) {
-        currentPoint = [[[imagePoints objectAtIndex:i] objectAtIndex:0] CGPointValue];
+        currentPoint = [[imagePoints objectAtIndex:i] objectAtIndex:0];
         currentColor = [[imagePoints objectAtIndex:i] objectAtIndex:1];
-        if (((currentPoint.x >= 0) && (currentPoint.x < self.frame.size.width) &&
-             (currentPoint.y >= 0) && (currentPoint.y < self.frame.size.height))) {
+        if (((currentPoint.X >= 0) && (currentPoint.X < self.frame.size.width) &&
+             (currentPoint.Y >= 0) && (currentPoint.Y < self.frame.size.height))) {
             CGContextSetFillColorWithColor(context, [currentColor CGColor]);
-            CGContextFillEllipseInRect(context, CGRectMake(currentPoint.x, currentPoint.y, size, size));
+            CGContextFillEllipseInRect(context, CGRectMake(currentPoint.X, currentPoint.Y, size, size));
         }
     }
 }

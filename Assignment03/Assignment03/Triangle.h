@@ -14,5 +14,6 @@
 @property (nonatomic) NSMutableArray *triangleFill;
 @property (nonatomic) NSMutableArray *triangleArray;
 - (void)drawTriangle:(NSArray*)point1 Point2: (NSArray*)point2 Point3: (NSArray*) point3;
+- (void)drawSquare:(NSArray*)point1 Point2: (NSArray*)point2 Point3: (NSArray*) point3 Point4: (NSArray*) point4;
 
 @end
